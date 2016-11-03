@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 17:25:50 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/03 17:35:30 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/03 17:41:35 by nicolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@ char	*ft_strchr(const char *s, int c)
 	while (*s)
 		if ((char)c == *s++)
 			return ((char *)s - 1);
-	return (NULL);
+	if ((char)c == *s)
+		return ((char *)s);
+	else
+		return (NULL);
 }

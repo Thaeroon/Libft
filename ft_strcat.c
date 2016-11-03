@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 16:47:59 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/03 17:35:26 by nicolas          ###   ########.fr       */
+/*   Created: 2016/11/03 17:24:57 by nicolas           #+#    #+#             */
+/*   Updated: 2016/11/03 17:26:19 by nicolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strcat(char *dest, char *src)
 {
-	const unsigned char		*ch_src;
-	unsigned char			ch_c;
-	size_t					index;
+	int i;
+	int j;
 
-	index = 0;
-	ch_c = (unsigned char)c;
-	ch_src = s;
-	while (index < n)
-		if (ch_c == ch_src[index++])
-			return ((void *)ch_src + index - 1);
-	return (NULL);
+	i = 0;
+	j = 0;
+	while (dest[i])
+		++i;
+	while (src[j])
+		dest[i++] = src[j++];
+	dest[i] = '\0';
+	return (dest);
 }

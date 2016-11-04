@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:31:26 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/03 15:35:16 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/04 14:10:01 by nicolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,21 @@ void	*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	const char	*ch_src;
 	size_t		index;
 
-	ch_dest = dest;
-	ch_src = src;
-	index = 0;
-	while (index < n)
+	if (dest && src)
 	{
-		if (ch_src[index] == c)
+		ch_dest = dest;
+		ch_src = src;
+		index = 0;
+		while (index < n)
 		{
+			if (ch_src[index] == c)
+			{
+				ch_dest[index] = ch_src[index];
+				return (dest);
+			}
 			ch_dest[index] = ch_src[index];
-			return (dest);
+			++index;
 		}
-		ch_dest[index] = ch_src[index];
-		++index;
 	}
 	return (NULL);
 }

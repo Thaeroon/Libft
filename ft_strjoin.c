@@ -1,39 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 17:50:38 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/04 14:06:56 by nicolas          ###   ########.fr       */
+/*   Created: 2016/11/04 14:28:51 by nicolas           #+#    #+#             */
+/*   Updated: 2016/11/04 14:45:05 by nicolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int j;
-	int bl_found;
+	char	*ret;
+	size_t	len_s1;
+	size_t	len_s2;
+	size_t	index;
 
-	bl_found = 0;
-	if (!*s2)
-		return ((char *)s1);
-	while (*s1 && !bl_found)
-	{
-		if (*s2 == *s1)
-		{
-			j = 0;
-			bl_found = 1;
-			while (s2[j])
-			{
-				if (*(s1 + j) != s2[j])
-					bl_found = 0;
-				j++;
-			}
-		}
-		s1++;
-	}
-	return (bl_found ? (char *)s1 - 1 : 0);
+	len_s1 = ft_strlen(s1);
+	len_s2 = ft_strlen(s2);
+	if(!(ret = (char *)malloc(sizeof(char) * (len_s1 + len_s2))))
+		return (NULL);
+	index = 0;
+	while (index < len_s1)
+		ret[index++] = *s1++;
+	while (index - len_s1 < len_s2)
+		ret[index++] = *s2++;
+	ret[index] = '\0';
+	return (ret);
 }

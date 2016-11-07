@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/03 15:14:44 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/04 16:06:18 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/06 14:16:16 by nicolas          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@
 void	ft_bzero(void *s, size_t n);
 void	*ft_memset(void *s, int c, size_t n);
 char	*ft_strdup(char *src);
+void	ft_putstr(char const *str);
+void	ft_putchar(char c);
 
 #endif

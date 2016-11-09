@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 16:20:28 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/04 16:25:04 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/07 14:26:20 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_putnbr_fd(int n, int fd)
 		ft_putchar_fd(n + '0', fd);
 	else
 	{
-		ft_putnbr_fd(n/10, fd);
-		ft_putchar_fd(n%10 + '0', fd);
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd(n % 10 + '0', fd);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 15:38:05 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/04 16:07:02 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/07 21:39:57 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,18 @@ char		*ft_itoa(int n)
 	int		len;
 
 	if (n == -2147483648)
-		return (strdup("-2147483648"));
+		return (ft_strdup("-2147483648"));
 	if (n == 0)
-		return (strdup("0"));
+		return (ft_strdup("0"));
 	len = ft_intlen(n);
 	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
 		return (NULL);
+	if (n < 0)
+		n *= -1;
 	ret[len--] = '\0';
 	while (n != 0)
 	{
-		ret[len--] = n % 10 + '0';
+		ret[len--] = (n % 10) + '0';
 		n /= 10;
 	}
 	if (len == 0)

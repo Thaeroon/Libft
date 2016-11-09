@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nmuller <nmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 17:19:41 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/09 13:27:45 by nmuller          ###   ########.fr       */
+/*   Created: 2016/11/07 16:17:40 by nmuller           #+#    #+#             */
+/*   Updated: 2016/11/07 22:03:59 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *src)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	char	*ret;
-	int		src_len;
-	int		cpt;
+	t_list	*ret;
+	t_list	*tmp;
 
-	src_len = 0;
-	while (src[src_len])
-		++src_len;
-	if (!(ret = (char*)malloc(sizeof(char) * (src_len + 1))))
-		return (0);
-	cpt = 0;
-	while (src[cpt] != '\0')
+	ret = ft_lstnew(lst->content, lst->content_size);
+	if (!ret)
+		return (NULL);
+	ret = f(ret);
+	tmp = ret;
+	while (lst->next)
 	{
-		ret[cpt] = src[cpt];
-		cpt++;
+		tmp->next = f(lst->next);
+		lst = lst->next;
+		tmp = tmp->next;
 	}
-	ret[cpt] = src[cpt];
 	return (ret);
 }

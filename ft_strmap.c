@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nmuller <nmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/03 18:07:01 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/07 22:09:00 by nmuller          ###   ########.fr       */
+/*   Created: 2016/11/02 17:10:49 by nmuller           #+#    #+#             */
+/*   Updated: 2016/11/07 23:12:21 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strncmp(const char *s1, const char *s2, size_t n)
+char			*ft_strmap(char const *s, char (*f)(char))
 {
-	if (!n)
-		return (0);
-	while (*s1 && *s2 && (unsigned char)*s1 == (unsigned char)*s2 && --n)
-	{
-		++s1;
-		++s2;
-	}
-	if (!n && (!*s1 || !*s2))
-		return (0);
-	return ((unsigned char)*s1 - (unsigned char)*s2);
+	char	*ret;
+	char	*tmp;
+
+	if (!s)
+		return (NULL);
+	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	tmp = ret;
+	while (*s)
+		*(ret++) = f(*(s++));
+	*ret = '\0';
+	return (tmp);
 }

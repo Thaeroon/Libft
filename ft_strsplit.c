@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 15:18:11 by nicolas           #+#    #+#             */
-/*   Updated: 2016/11/04 15:36:27 by nicolas          ###   ########.fr       */
+/*   Updated: 2016/11/07 23:10:00 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,13 @@ static int		char_count(const char *s, char c)
 	return (count);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	char	**ret_tab;
 	int		nb_split;
 
+	if (!s)
+		return (NULL);
 	nb_split = 0;
 	if (!(ret_tab = (char**)malloc(sizeof(*ret_tab) * (w_count(s, c) + 1))))
 		return (NULL);

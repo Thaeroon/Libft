@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nmuller <nmuller@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/02 17:13:05 by nmuller           #+#    #+#             */
-/*   Updated: 2016/11/07 18:36:19 by nmuller          ###   ########.fr       */
+/*   Created: 2016/11/09 13:55:12 by nmuller           #+#    #+#             */
+/*   Updated: 2017/09/28 01:25:45 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	len;
+# include <stdlib.h>
+# include <unistd.h>
+# include "libft.h"
+# define BUFF_SIZE 32
 
-	len = 0;
-	while (*s++)
-		++len;
-	return (len);
-}
+int		get_next_line(const int fd, char **line);
+
+#endif

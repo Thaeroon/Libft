@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 12:40:04 by nicolas           #+#    #+#             */
-/*   Updated: 2017/10/05 13:43:40 by nmuller          ###   ########.fr       */
+/*   Updated: 2017/10/06 12:49:51 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,5 @@ char			*conv_mod(t_modif *modif, va_list arg, int *arg_len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_printf(const char *format, ...);
 char			*ft_sprintf(const char *format, ...);
-
 
 #endif

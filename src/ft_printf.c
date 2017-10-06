@@ -6,7 +6,7 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 12:40:10 by nicolas           #+#    #+#             */
-/*   Updated: 2017/10/05 13:46:33 by nmuller          ###   ########.fr       */
+/*   Updated: 2017/10/06 12:48:26 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	init_modif(t_modif **modif)
 	return (1);
 }
 
-int		ft_printf(const char *format, ...)
+int			ft_printf(const char *format, ...)
 {
 	va_list		ap;
 	t_modif		*modif;

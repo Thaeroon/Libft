@@ -6,13 +6,13 @@
 /*   By: nicolas <nicolas@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/22 12:40:10 by nicolas           #+#    #+#             */
-/*   Updated: 2017/10/05 13:46:13 by nmuller          ###   ########.fr       */
+/*   Updated: 2017/10/06 12:49:25 by nmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int		init_modif(t_modif **modif)
+static int	init_modif(t_modif **modif)
 {
 	(*modif)->att = 0;
 	(*modif)->champ = -2;
@@ -22,7 +22,7 @@ static int		init_modif(t_modif **modif)
 	return (1);
 }
 
-char	*ft_sprintf(const char *format, ...)
+char		*ft_sprintf(const char *format, ...)
 {
 	va_list		ap;
 	t_modif		*modif;
@@ -30,7 +30,7 @@ char	*ft_sprintf(const char *format, ...)
 	char		*ret_str;
 
 	if (!format)
-		exit (-1);
+		return (0);
 	ret_str = NULL;
 	nb_wrote = 0;
 	va_start(ap, format);
